@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Users } from "lucide-react";
+import { Menu, X, Heart } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +35,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <a href="/" className="flex items-center gap-2">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 flex items-center justify-center text-white">
-                <Users className="h-6 w-6" />
+                <Heart className="h-6 w-6" />
               </div>
               <span className="font-bold text-xl tracking-tight">Hera AI</span>
             </a>
@@ -55,6 +55,7 @@ const Navbar = () => {
             <Button
               className="btn-gradient rounded-full px-6"
               size="sm"
+              onClick={() => window.demoForm.showModal()}
             >
               Request Demo
             </Button>
@@ -105,7 +106,10 @@ const Navbar = () => {
               <Button
                 className="btn-gradient rounded-full w-full"
                 size="sm"
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  window.demoForm.showModal();
+                }}
               >
                 Request Demo
               </Button>

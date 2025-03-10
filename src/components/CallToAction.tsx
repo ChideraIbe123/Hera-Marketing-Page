@@ -31,7 +31,10 @@ const CallToAction = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="bg-white text-primary hover:bg-white/90 rounded-full px-8 py-6 text-base font-medium transition-all duration-300">
+                  <Button 
+                    className="bg-white text-primary hover:bg-white/90 rounded-full px-8 py-6 text-base font-medium transition-all duration-300"
+                    onClick={() => window.demoForm.showModal()}
+                  >
                     Request Demo
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>

@@ -70,3 +70,47 @@
     transform: scale(0.95);
   }
 }
+
+/* Dialog/Modal styling */
+dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  height: 100vh;
+  width: 100vw;
+  border: none;
+  overflow: auto;
+}
+
+dialog[open] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+dialog::backdrop {
+  display: none;
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fix for iOS positioning */
+@supports (-webkit-touch-callout: none) {
+  dialog {
+    position: absolute;
+  }
+}

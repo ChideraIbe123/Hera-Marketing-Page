@@ -1,11 +1,10 @@
-
 import React from "react";
 import { 
   Github, 
   Twitter, 
   Linkedin,
   MessageCircle,
-  Users
+  Heart
 } from "lucide-react";
 
 const Footer = () => {
@@ -16,7 +15,7 @@ const Footer = () => {
           <div className="md:col-span-1">
             <a href="/" className="flex items-center gap-2 mb-6">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 flex items-center justify-center text-white">
-                <Users className="h-6 w-6" />
+                <Heart className="h-6 w-6" />
               </div>
               <span className="font-bold text-xl tracking-tight">Hera AI</span>
             </a>
