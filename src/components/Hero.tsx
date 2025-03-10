@@ -44,25 +44,33 @@ const Hero = () => {
                     <Users className="h-8 w-8 text-white" />
                   </div>
                   
-                  {/* Connected nodes - adjusted positions to align with connection lines */}
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-violet-600 flex items-center justify-center shadow-md animate-float" style={{ animationDelay: "0.5s" }}>
-                    <GitBranch className="h-6 w-6 text-white" />
+                  {/* Connected nodes - fixed alignment during animation */}
+                  <div className="absolute w-12 h-12" style={{ top: "0", left: "50%", transform: "translateX(-50%)" }}>
+                    <div className="w-full h-full rounded-full bg-violet-600 flex items-center justify-center shadow-md animate-float" style={{ animationDelay: "0.5s" }}>
+                      <GitBranch className="h-6 w-6 text-white" />
+                    </div>
                   </div>
                   
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-green-500 flex items-center justify-center shadow-md animate-float" style={{ animationDelay: "1.5s" }}>
-                    <Activity className="h-6 w-6 text-white" />
+                  <div className="absolute w-12 h-12" style={{ bottom: "0", left: "50%", transform: "translateX(-50%)" }}>
+                    <div className="w-full h-full rounded-full bg-green-500 flex items-center justify-center shadow-md animate-float" style={{ animationDelay: "1.5s" }}>
+                      <Activity className="h-6 w-6 text-white" />
+                    </div>
                   </div>
                   
-                  <div className="absolute top-1/2 left-0 transform -translate-y-1/2 w-12 h-12 rounded-full bg-amber-500 flex items-center justify-center shadow-md animate-float" style={{ animationDelay: "1s" }}>
-                    <MessageCircle className="h-6 w-6 text-white" />
+                  <div className="absolute w-12 h-12" style={{ top: "50%", left: "0", transform: "translateY(-50%)" }}>
+                    <div className="w-full h-full rounded-full bg-amber-500 flex items-center justify-center shadow-md animate-float" style={{ animationDelay: "1s" }}>
+                      <MessageCircle className="h-6 w-6 text-white" />
+                    </div>
                   </div>
                   
-                  <div className="absolute top-1/2 right-0 transform -translate-y-1/2 w-12 h-12 rounded-full bg-rose-500 flex items-center justify-center shadow-md animate-float" style={{ animationDelay: "2s" }}>
-                    <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7 8L3 12L7 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M17 8L21 12L17 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M14 4L10 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                  <div className="absolute w-12 h-12" style={{ top: "50%", right: "0", transform: "translateY(-50%)" }}>
+                    <div className="w-full h-full rounded-full bg-rose-500 flex items-center justify-center shadow-md animate-float" style={{ animationDelay: "2s" }}>
+                      <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 8L3 12L7 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M17 8L21 12L17 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M14 4L10 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
                   </div>
                   
                   {/* Connection lines - adjusted viewBox to ensure proper alignment */}

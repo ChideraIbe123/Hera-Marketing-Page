@@ -119,7 +119,7 @@ const Features = () => {
                           <Users className="h-8 w-8 text-white" />
                         </div>
                         
-                        {/* Connected nodes - we'll create a network-like visualization with improved alignment */}
+                        {/* Connected nodes - fixed position containers to maintain alignment */}
                         {Array.from({ length: 8 }).map((_, i) => {
                           const angle = (i * Math.PI * 2) / 8;
                           const radius = 100;
@@ -132,17 +132,21 @@ const Features = () => {
                           return (
                             <div 
                               key={i}
-                              className={`absolute ${colorClass} rounded-full shadow-md flex items-center justify-center animate-float`}
+                              className="absolute"
                               style={{ 
-                                width: `${size}px`, 
-                                height: `${size}px`,
                                 left: `${x}px`, 
                                 top: `${y}px`,
-                                transform: 'translate(-50%, -50%)',  // Center the node at the exact point
-                                animationDelay: `${i * 0.5}s`,
-                                zIndex: 10
+                                transform: 'translate(-50%, -50%)',
+                                zIndex: 10,
+                                width: `${size}px`,
+                                height: `${size}px`,
                               }}
                             >
+                              <div 
+                                className={`w-full h-full ${colorClass} rounded-full shadow-md flex items-center justify-center animate-float`}
+                                style={{ animationDelay: `${i * 0.5}s` }}
+                              >
+                              </div>
                             </div>
                           );
                         })}
