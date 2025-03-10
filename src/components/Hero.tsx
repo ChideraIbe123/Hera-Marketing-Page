@@ -1,8 +1,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, GitBranch, MessageCircle, Activity } from "lucide-react";
-import DemoForm from "./DemoForm";
+import { ArrowRight, GitBranch, MessageCircle, Users, Activity } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -23,10 +22,7 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                className="btn-gradient rounded-full px-8 py-6 text-base font-medium"
-                onClick={() => window.demoForm.showModal()}
-              >
+              <Button className="btn-gradient rounded-full px-8 py-6 text-base font-medium">
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -93,7 +89,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <DemoForm />
     </section>
   );
 };
