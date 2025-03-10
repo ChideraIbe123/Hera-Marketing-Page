@@ -119,7 +119,7 @@ const Features = () => {
                           <Users className="h-8 w-8 text-white" />
                         </div>
                         
-                        {/* Connected nodes - we'll create a network-like visualization */}
+                        {/* Connected nodes - we'll create a network-like visualization with improved alignment */}
                         {Array.from({ length: 8 }).map((_, i) => {
                           const angle = (i * Math.PI * 2) / 8;
                           const radius = 100;
@@ -138,6 +138,7 @@ const Features = () => {
                                 height: `${size}px`,
                                 left: `${x}px`, 
                                 top: `${y}px`,
+                                transform: 'translate(-50%, -50%)',  // Center the node at the exact point
                                 animationDelay: `${i * 0.5}s`,
                                 zIndex: 10
                               }}
@@ -146,7 +147,7 @@ const Features = () => {
                           );
                         })}
                         
-                        {/* Connection lines */}
+                        {/* Connection lines - improved alignment */}
                         <svg className="absolute" width="300" height="300" viewBox="-150 -150 300 300" style={{ top: "-150px", left: "-150px" }}>
                           {Array.from({ length: 8 }).map((_, i) => {
                             const angle = (i * Math.PI * 2) / 8;

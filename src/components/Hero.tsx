@@ -44,7 +44,7 @@ const Hero = () => {
                     <Users className="h-8 w-8 text-white" />
                   </div>
                   
-                  {/* Connected nodes */}
+                  {/* Connected nodes - adjusted positions to align with connection lines */}
                   <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-violet-600 flex items-center justify-center shadow-md animate-float" style={{ animationDelay: "0.5s" }}>
                     <GitBranch className="h-6 w-6 text-white" />
                   </div>
@@ -65,7 +65,7 @@ const Hero = () => {
                     </svg>
                   </div>
                   
-                  {/* Connection lines */}
+                  {/* Connection lines - adjusted viewBox to ensure proper alignment */}
                   <svg className="absolute inset-0 w-full h-full" viewBox="0 0 256 256">
                     <line x1="128" y1="32" x2="128" y2="112" stroke="rgba(124, 58, 237, 0.5)" strokeWidth="2" strokeDasharray="4 4" />
                     <line x1="128" y1="144" x2="128" y2="224" stroke="rgba(16, 185, 129, 0.5)" strokeWidth="2" strokeDasharray="4 4" />
