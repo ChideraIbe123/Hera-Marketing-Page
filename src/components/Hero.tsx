@@ -18,7 +18,7 @@ const Hero = () => {
             </h1>
             
             <p className="text-lg text-muted-foreground mb-8 md:max-w-lg text-balance">
-              QualiFlow analyzes interactions across your company's tools to reveal the true collaborative landscape—focusing on how work happens, not just what gets done.
+              Hera AI analyzes interactions across your company's tools to reveal the true collaborative landscape—focusing on how work happens, not just what gets done.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -33,7 +33,7 @@ const Hero = () => {
           </div>
 
           <div className="md:w-1/2 relative">
-            <div className="relative w-full h-80 md:h-96 bg-gradient-to-br from-blue-50 to-violet-50 rounded-2xl overflow-hidden animate-fade-in">
+            <div className="relative w-full h-80 md:h-[400px] bg-gradient-to-br from-blue-50 to-violet-50 rounded-2xl overflow-hidden animate-fade-in mx-auto">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center opacity-10"></div>
               
               {/* Network visualization elements */}

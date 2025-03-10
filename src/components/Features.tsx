@@ -61,7 +61,7 @@ const Features = () => {
             See <span className="text-gradient">beyond the numbers</span> with qualitative analysis
           </h2>
           <p className="text-muted-foreground text-balance">
-            Traditional metrics miss the hidden contributions that drive your company forward. QualiFlow reveals the complete picture of collaboration and value creation.
+            Traditional metrics miss the hidden contributions that drive your company forward. Hera AI reveals the complete picture of collaboration and value creation.
           </p>
         </div>
 
@@ -81,7 +81,7 @@ const Features = () => {
         </div>
 
         <div className="mt-20 bg-gradient-to-r from-blue-50 to-violet-50 rounded-2xl p-8 md:p-12 overflow-hidden relative">
-          <div className="flex flex-col md:flex-row items-center">
+          <div className="flex flex-col md:flex-row md:items-center">
             <div className="md:w-1/2 mb-8 md:mb-0">
               <h3 className="text-2xl md:text-3xl font-bold mb-4">
                 Hidden Value Visualization
@@ -108,7 +108,7 @@ const Features = () => {
               </ul>
             </div>
             <div className="md:w-1/2 relative">
-              <div className="relative aspect-video w-full bg-white rounded-xl overflow-hidden shadow-lg">
+              <div className="relative aspect-video w-full bg-white rounded-xl overflow-hidden shadow-lg mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-900/5 to-violet-900/5"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative w-full h-full p-6">

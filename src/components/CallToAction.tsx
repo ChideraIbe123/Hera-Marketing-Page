@@ -27,7 +27,7 @@ const CallToAction = () => {
                   Uncover the true value within your organization
                 </h2>
                 <p className="text-white/80 mb-8">
-                  Ready to discover who's really driving your success? QualiFlow reveals the hidden heroes and collaboration networks that traditional HR analytics miss.
+                  Ready to discover who's really driving your success? Hera AI reveals the hidden heroes and collaboration networks that traditional HR analytics miss.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">

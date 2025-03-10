@@ -35,9 +35,9 @@ const Navbar = () => {
           <div className="flex items-center">
             <a href="/" className="flex items-center gap-2">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 flex items-center justify-center text-white font-bold text-xl">
-                Q
+                H
               </div>
-              <span className="font-bold text-xl tracking-tight">QualiFlow</span>
+              <span className="font-bold text-xl tracking-tight">Hera AI</span>
             </a>
           </div>
 

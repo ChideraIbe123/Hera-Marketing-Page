@@ -15,9 +15,9 @@ const Footer = () => {
           <div className="md:col-span-1">
             <a href="/" className="flex items-center gap-2 mb-6">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 flex items-center justify-center text-white font-bold text-xl">
-                Q
+                H
               </div>
-              <span className="font-bold text-xl tracking-tight">QualiFlow</span>
+              <span className="font-bold text-xl tracking-tight">Hera AI</span>
             </a>
             <p className="text-muted-foreground mb-6">
               Redefining HR analytics through qualitative interaction analysis.
@@ -77,7 +77,7 @@ const Footer = () => {
         
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground mb-4 md:mb-0">
-            © {new Date().getFullYear()} QualiFlow. All rights reserved.
+            © {new Date().getFullYear()} Hera AI. All rights reserved.
           </p>
           
           <div className="flex flex-wrap gap-4 md:gap-8">

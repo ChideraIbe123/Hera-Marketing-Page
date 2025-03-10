@@ -14,7 +14,7 @@ const Testimonial = () => {
             Discover hidden <span className="text-gradient">talent and value</span>
           </h2>
           <p className="text-muted-foreground text-balance">
-            See how organizations are using QualiFlow to recognize and reward the true contributors within their teams.
+            See how organizations are using Hera AI to recognize and reward the true contributors within their teams.
           </p>
         </div>
 
@@ -26,11 +26,11 @@ const Testimonial = () => {
             
             <div className="flex flex-col md:flex-row gap-8">
               <div className="w-full md:w-2/5">
-                <div className="relative rounded-lg overflow-hidden mb-5">
+                <div className="relative rounded-lg overflow-hidden mb-5 w-full h-48 md:h-auto">
                   <img 
                     src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
                     alt="Tech company office with people collaborating"
-                    className="w-full aspect-video object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="flex items-center gap-4">
@@ -48,11 +48,11 @@ const Testimonial = () => {
               
               <div className="w-full md:w-3/5">
                 <blockquote className="text-lg mb-6 text-balance">
-                  "QualiFlow completely transformed how we evaluate and recognize our team members. The traditional performance metrics were missing the people who made everyone else better. 
+                  "Hera AI completely transformed how we evaluate and recognize our team members. The traditional performance metrics were missing the people who made everyone else better. 
                   <span className="font-medium text-primary"> We discovered that some of our most valuable team members weren't the ones with the most visible output—they were the ones empowering others.</span> This insight helped us retain key employees who might have otherwise gone unrecognized."
                 </blockquote>
                 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-secondary/50 p-4 rounded-lg">
                     <p className="text-2xl font-bold text-primary">42%</p>
                     <p className="text-sm text-muted-foreground">Increase in identifying key collaborators</p>
@@ -73,7 +73,7 @@ const Testimonial = () => {
               </div>
               
               <blockquote className="text-lg mb-6 text-balance">
-                "We were about to lose a developer who didn't seem productive by traditional metrics. QualiFlow revealed he was actually crucial to our team's success, answering questions and helping others constantly."
+                "We were about to lose a developer who didn't seem productive by traditional metrics. Hera AI revealed he was actually crucial to our team's success, answering questions and helping others constantly."
               </blockquote>
             </div>
             
