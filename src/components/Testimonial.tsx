@@ -90,6 +90,20 @@ const Testimonial = () => {
             </div>
           </div>
         </div>
+
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {[
+            { number: "87%", text: "More accurate talent assessment" },
+            { number: "62%", text: "Better team allocation" },
+            { number: "41%", text: "Higher recognition accuracy" },
+            { number: "3.4x", text: "Return on investment" }
+          ].map((stat, i) => (
+            <div key={i} className="animate-fade-in" style={{ animationDelay: `${i * 0.1}s` }}>
+              <p className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.number}</p>
+              <p className="text-sm text-muted-foreground">{stat.text}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
