@@ -11,8 +11,8 @@ const Footer = () => {
   return (
     <footer className="bg-white border-t border-border">
       <div className="container-custom py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
-          <div className="md:col-span-1">
+        <div className="flex flex-col md:flex-row justify-between items-start">
+          <div>
             <a href="/" className="flex items-center gap-2 mb-6">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 flex items-center justify-center text-white">
                 <Heart className="h-6 w-6" />
@@ -34,50 +34,11 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          
-          <div>
-            <h3 className="font-semibold mb-4">Product</h3>
-            <ul className="space-y-3">
-              {["Features", "How It Works", "Pricing", "Case Studies"].map((item, i) => (
-                <li key={i}>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold mb-4">Resources</h3>
-            <ul className="space-y-3">
-              {["Documentation", "API", "Guides", "Help Center"].map((item, i) => (
-                <li key={i}>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold mb-4">Company</h3>
-            <ul className="space-y-3">
-              {["About Us", "Careers", "Blog", "Contact"].map((item, i) => (
-                <li key={i}>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
         
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground mb-4 md:mb-0">
-            © {new Date().getFullYear()} Hera AI. All rights reserved.
+            © {new Date().getFullYear()} Hera AI. All rights reserved. <span className="hidden md:inline">|</span><br className="md:hidden" /> theheraai.com
           </p>
           
           <div className="flex flex-wrap gap-4 md:gap-8">
