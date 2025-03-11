@@ -45,9 +45,6 @@ const CallToAction = () => {
                     Request Demo
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
-                  <Button variant="outline" className="text-white border-white hover:bg-white/10 rounded-full px-8 py-6 text-base font-medium">
-                    Learn More
-                  </Button>
                 </div>
               </div>
               
