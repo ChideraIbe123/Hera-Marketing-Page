@@ -1,9 +1,9 @@
+
 import React from "react";
 import { 
   Github, 
   Twitter, 
   Linkedin,
-  MessageCircle,
   Heart
 } from "lucide-react";
 
@@ -38,7 +38,7 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Product</h3>
             <ul className="space-y-3">
-              {["Features", "How It Works", "Pricing", "Case Studies", "Integrations"].map((item, i) => (
+              {["Features", "How It Works", "Pricing", "Case Studies"].map((item, i) => (
                 <li key={i}>
                   <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                     {item}
@@ -51,7 +51,7 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Resources</h3>
             <ul className="space-y-3">
-              {["Documentation", "API", "Guides", "Help Center", "Community"].map((item, i) => (
+              {["Documentation", "API", "Guides", "Help Center"].map((item, i) => (
                 <li key={i}>
                   <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                     {item}
@@ -64,7 +64,7 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-3">
-              {["About Us", "Careers", "Blog", "Press", "Contact"].map((item, i) => (
+              {["About Us", "Careers", "Blog", "Contact"].map((item, i) => (
                 <li key={i}>
                   <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                     {item}
@@ -86,9 +86,6 @@ const Footer = () => {
             </a>
             <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Terms of Service
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Cookies
             </a>
           </div>
         </div>
