@@ -1,9 +1,16 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Network, Users, TrendingUp } from "lucide-react";
+import { ArrowRight, Network, Heart, TrendingUp } from "lucide-react";
+import { DemoModal } from "@/components/DemoModal";
 
 const CallToAction = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <section className="section-padding bg-gradient-to-b from-secondary/30 to-white">
       <div className="container-custom">
@@ -31,7 +38,10 @@ const CallToAction = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="bg-white text-primary hover:bg-white/90 rounded-full px-8 py-6 text-base font-medium transition-all duration-300">
+                  <Button 
+                    className="bg-white text-primary hover:bg-white/90 rounded-full px-8 py-6 text-base font-medium transition-all duration-300"
+                    onClick={openModal}
+                  >
                     Request Demo
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -51,7 +61,7 @@ const CallToAction = () => {
                         description: "Integrate with all your existing tools and platforms"
                       },
                       { 
-                        icon: <Users className="h-6 w-6 text-white" />,
+                        icon: <Heart className="h-6 w-6 text-white" />,
                         title: "Analyze",
                         description: "Discover collaboration patterns and key contributors"
                       },
@@ -86,6 +96,8 @@ const CallToAction = () => {
           </div>
         </div>
       </div>
+      
+      <DemoModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
     </section>
   );
 };
