@@ -1,3 +1,4 @@
+
 import React from "react";
 import {
   GitPullRequest,
@@ -9,38 +10,38 @@ import {
 const steps = [
   {
     icon: <GitPullRequest className="h-6 w-6" />,
-    title: "Connect Your Tools",
+    title: "Neural Integration",
     description:
-      "Seamlessly integrate with GitHub, Jira, Confluence, and other development platforms.",
+      "Connect your digital ecosystem with our quantum parsing engine for seamless data harvesting.",
     color: "from-blue-500 to-blue-600",
     tags: ["GitHub", "Jira", "Confluence"],
     tagColor: "bg-blue-100 text-blue-700",
   },
   {
     icon: <MessageCircle className="h-6 w-6" />,
-    title: "Analyze Communications",
+    title: "Semantic Analysis Matrix",
     description:
-      "Process conversations from Slack, Teams, emails, and meeting transcripts.",
+      "Our AI processes communication streams to decode intent, context, and value across digital interactions.",
     color: "from-amber-500 to-amber-600",
-    tags: ["Slack", "Teams", "Meetings"],
+    tags: ["NLP", "Sentiment", "Context"],
     tagColor: "bg-amber-100 text-amber-700",
   },
   {
     icon: <Search className="h-6 w-6" />,
-    title: "Discover Patterns",
+    title: "Cognitive Pattern Recognition",
     description:
-      "Our AI identifies who's helping others, sharing knowledge, and driving projects forward.",
+      "Quantum algorithms identify synapse-like connections between contributors and measure knowledge transfer velocity.",
     color: "from-violet-500 to-violet-600",
-    tags: ["AI Analysis", "Pattern Recognition"],
+    tags: ["Neural Networks", "Predictive Modeling"],
     tagColor: "bg-violet-100 text-violet-700",
   },
   {
     icon: <LayoutDashboard className="h-6 w-6" />,
-    title: "Visualize Insights",
+    title: "Holographic Visualization",
     description:
-      "View intuitive dashboards that reveal hidden collaboration networks and key contributors.",
+      "Experience immersive data landscapes that reveal hidden talent networks and collaborative constellations.",
     color: "from-green-500 to-green-600",
-    tags: ["Network Graphs", "Trend Analysis"],
+    tags: ["3D Mapping", "Interactive Networks"],
     tagColor: "bg-green-100 text-green-700",
   },
 ];
@@ -52,17 +53,16 @@ const HowItWorks = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-secondary border border-primary/10">
             <span className="text-xs font-medium text-primary">
-              The Process
+              The Neural Process
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            How <span className="text-gradient">HeraAI</span> transforms your
-            approach
+            How <span className="text-gradient">HeraAI</span> rewires talent evaluation
           </h2>
           <p className="text-muted-foreground text-balance">
-            Our platform doesn't just collect data—it reveals the story of how
-            work actually happens in your organization, highlighting the true
-            drivers of success.
+            Our quantum analysis platform doesn't just collect data—it creates
+            a digital twin of your organization's collaborative neural network, revealing
+            the synergistic pathways that drive innovation.
           </p>
         </div>
 

@@ -31,19 +31,19 @@ const Hero = () => {
           <div className="md:w-1/2 mb-12 md:mb-0 animate-fade-in">
             <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-secondary border border-primary/10">
               <span className="text-xs font-medium text-primary">
-                AI-Powered Performance Evaluation System
+                Next-Gen Talent Optimization
               </span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 md:max-w-xl">
-              Identify your <span className="text-gradient">true performers</span>{" "}
-              with AI precision
+              Decode <span className="text-gradient">hidden potential</span>{" "}
+              with AI intelligence
             </h1>
 
             <p className="text-lg text-muted-foreground mb-8 md:max-w-lg text-balance">
-              HeraAI redefines performance evaluation by analyzing real
-              collaboration patterns across all your company tools—bringing
-              efficiency, transparency, and convenience to how you recognize top talent.
+              HeraAI transcends traditional evaluations by analyzing digital collaboration 
+              patterns across your enterprise—revealing the invisible networks that drive 
+              innovation and success in your organization.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -75,36 +75,36 @@ const Hero = () => {
                   {/* Core Feature 1 */}
                   <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-blue-100 transform hover:scale-105 transition-all duration-300">
                     <Award className="h-8 w-8 text-blue-600 mb-4" />
-                    <h3 className="text-lg font-semibold mb-2">Recognize Top Talent</h3>
+                    <h3 className="text-lg font-semibold mb-2">Neural Talent Mapping</h3>
                     <p className="text-sm text-gray-600">
-                      Identify your organization's true performers with data-driven insights
+                      AI algorithms that decode collaborative networks and identify hidden influencers
                     </p>
                   </div>
                   
                   {/* Core Feature 2 */}
                   <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-violet-100 transform hover:scale-105 transition-all duration-300">
                     <Zap className="h-8 w-8 text-violet-600 mb-4" />
-                    <h3 className="text-lg font-semibold mb-2">Boost Efficiency</h3>
+                    <h3 className="text-lg font-semibold mb-2">Quantum Efficiency</h3>
                     <p className="text-sm text-gray-600">
-                      Streamline evaluations and reduce bias with AI analysis
+                      Eliminate subjective evaluation with data-driven performance metrics
                     </p>
                   </div>
                   
                   {/* Core Feature 3 */}
                   <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-amber-100 transform hover:scale-105 transition-all duration-300">
                     <Users className="h-8 w-8 text-amber-600 mb-4" />
-                    <h3 className="text-lg font-semibold mb-2">Complete Transparency</h3>
+                    <h3 className="text-lg font-semibold mb-2">Holographic Visibility</h3>
                     <p className="text-sm text-gray-600">
-                      Base decisions on actual collaboration data, not just perceptions
+                      360° transparency into contribution patterns across all digital workspaces
                     </p>
                   </div>
                   
                   {/* Core Feature 4 */}
                   <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-green-100 transform hover:scale-105 transition-all duration-300">
                     <BarChart className="h-8 w-8 text-green-600 mb-4" />
-                    <h3 className="text-lg font-semibold mb-2">Data-Driven Decisions</h3>
+                    <h3 className="text-lg font-semibold mb-2">Predictive Insights</h3>
                     <p className="text-sm text-gray-600">
-                      Make promotion and development choices based on comprehensive metrics
+                      Anticipate team dynamics and optimize talent allocation with AI forecasting
                     </p>
                   </div>
                 </div>
