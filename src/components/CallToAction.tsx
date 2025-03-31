@@ -11,6 +11,10 @@ const CallToAction = () => {
     setIsModalOpen(true);
   };
 
+  const scrollToWaitlist = () => {
+    document.getElementById('waitlist-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="section-padding bg-gradient-to-b from-secondary/30 to-white">
       <div className="container-custom">
@@ -44,6 +48,13 @@ const CallToAction = () => {
                   >
                     Request Demo
                     <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                  
+                  <Button 
+                    className="bg-transparent border border-white text-white hover:bg-white/10 rounded-full px-8 py-6 text-base font-medium transition-all duration-300"
+                    onClick={scrollToWaitlist}
+                  >
+                    Join Waitlist
                   </Button>
                 </div>
               </div>
@@ -82,10 +93,6 @@ const CallToAction = () => {
                         </div>
                       </div>
                     ))}
-                  </div>
-                  
-                  <div className="mt-6 text-center">
-                    <p className="text-white/70 text-sm">Join 400+ forward-thinking companies</p>
                   </div>
                 </div>
               </div>

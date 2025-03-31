@@ -28,6 +28,10 @@ const Navbar = () => {
     setIsModalOpen(true);
   };
 
+  const scrollToWaitlist = () => {
+    document.getElementById('waitlist-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
@@ -55,9 +59,17 @@ const Navbar = () => {
             <a href="#how-it-works" className="link-hover text-sm font-medium">
               How It Works
             </a>
-            <a href="#testimonials" className="link-hover text-sm font-medium">
-              Testimonials
+            <a href="#companies" className="link-hover text-sm font-medium">
+              Companies
             </a>
+            <Button
+              variant="outline"
+              size="sm"
+              className="rounded-full"
+              onClick={scrollToWaitlist}
+            >
+              Join Waitlist
+            </Button>
             <Button
               className="btn-gradient rounded-full px-6"
               size="sm"
@@ -103,12 +115,23 @@ const Navbar = () => {
                 How It Works
               </a>
               <a 
-                href="#testimonials" 
+                href="#companies" 
                 className="text-sm font-medium px-4 py-2 rounded-md hover:bg-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Testimonials
+                Companies
               </a>
+              <Button
+                variant="outline"
+                className="w-full rounded-full"
+                size="sm"
+                onClick={() => {
+                  setIsOpen(false);
+                  scrollToWaitlist();
+                }}
+              >
+                Join Waitlist
+              </Button>
               <Button
                 className="btn-gradient rounded-full w-full"
                 size="sm"
