@@ -1,8 +1,11 @@
-
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
+
+// Initialize EmailJS with environment variable
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 const Waitlist = () => {
   const [email, setEmail] = useState("");
@@ -11,23 +14,47 @@ const Waitlist = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      // Prepare the email parameters
+      const templateParams = {
+        from_email: email,
+        from_name: `${company} - ${role}`,
+        to_email: import.meta.env.VITE_EMAILJS_TO_EMAIL,
+        message: `New waitlist signup from ${email} (${company}, ${role})`,
+      };
+
+      // Send the email using EmailJS with environment variables
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
+
       toast({
         title: "Success!",
-        description: "You've been added to our waitlist. We'll be in touch soon!",
+        description:
+          "You've been added to our waitlist. We'll be in touch soon!",
       });
-      
+
       // Reset form
       setEmail("");
       setCompany("");
       setRole("");
-    }, 1000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description:
+          "There was a problem submitting your request. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -37,23 +64,30 @@ const Waitlist = () => {
           <div>
             <div className="max-w-md">
               <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-secondary border border-primary/10">
-                <span className="text-xs font-medium text-primary">Limited Access</span>
+                <span className="text-xs font-medium text-primary">
+                  Limited Access
+                </span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Join our <span className="text-gradient">waitlist</span> for early access
+                Join our <span className="text-gradient">waitlist</span> for
+                early access
               </h2>
               <p className="text-muted-foreground mb-8">
-                We're rolling out Hera AI to select organizations. Join our waitlist to be among the first to experience how AI can transform your team dynamics and talent recognition.
+                We're rolling out to select organizations. Join our waitlist to
+                be among the first to experience how AI can transform your team
+                dynamics and talent recognition.
               </p>
-              
+
               <div className="bg-gradient-to-r from-blue-600/10 to-violet-600/10 p-4 rounded-lg mb-6">
-                <h4 className="font-medium text-primary mb-2">Early access benefits:</h4>
+                <h4 className="font-medium text-primary mb-2">
+                  Early access benefits:
+                </h4>
                 <ul className="space-y-2">
                   {[
                     "Priority onboarding and setup assistance",
                     "Custom integration with your existing tools",
                     "Personalized training for your HR team",
-                    "Input on feature development roadmap"
+                    "Input on feature development roadmap",
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-primary block"></span>
@@ -64,14 +98,21 @@ const Waitlist = () => {
               </div>
             </div>
           </div>
-          
+
           <div>
             <div className="bg-white rounded-xl p-8 shadow-md border border-border">
-              <h3 className="text-xl font-bold mb-6">Request to join waitlist</h3>
-              
+              <h3 className="text-xl font-bold mb-6">
+                Request to join waitlist
+              </h3>
+
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-1">Work Email</label>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium mb-1"
+                  >
+                    Work Email
+                  </label>
                   <Input
                     id="email"
                     type="email"
@@ -81,9 +122,14 @@ const Waitlist = () => {
                     required
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium mb-1">Company Name</label>
+                  <label
+                    htmlFor="company"
+                    className="block text-sm font-medium mb-1"
+                  >
+                    Company Name
+                  </label>
                   <Input
                     id="company"
                     placeholder="Your company"
@@ -92,9 +138,14 @@ const Waitlist = () => {
                     required
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="role" className="block text-sm font-medium mb-1">Your Role</label>
+                  <label
+                    htmlFor="role"
+                    className="block text-sm font-medium mb-1"
+                  >
+                    Your Role
+                  </label>
                   <Input
                     id="role"
                     placeholder="e.g. HR Director"
@@ -103,17 +154,18 @@ const Waitlist = () => {
                     required
                   />
                 </div>
-                
-                <Button 
+
+                <Button
                   type="submit"
                   className="w-full btn-gradient rounded-full mt-2"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Submitting..." : "Join Waitlist"}
                 </Button>
-                
+
                 <p className="text-xs text-center text-muted-foreground mt-4">
-                  By signing up, you agree to our Terms of Service and Privacy Policy.
+                  By signing up, you agree to our Terms of Service and Privacy
+                  Policy.
                 </p>
               </form>
             </div>

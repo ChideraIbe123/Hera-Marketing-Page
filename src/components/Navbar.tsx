@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart } from "lucide-react";
@@ -29,15 +28,15 @@ const Navbar = () => {
   };
 
   const scrollToWaitlist = () => {
-    document.getElementById('waitlist-section')?.scrollIntoView({ behavior: 'smooth' });
+    document
+      .getElementById("waitlist-section")
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-        isScrolled 
-          ? "py-3 glassmorphic" 
-          : "py-5 bg-transparent"
+        isScrolled ? "py-3 glassmorphic" : "py-5 bg-transparent"
       }`}
     >
       <div className="container-custom">
@@ -47,7 +46,7 @@ const Navbar = () => {
               <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 flex items-center justify-center text-white">
                 <Heart className="h-6 w-6" />
               </div>
-              <span className="font-bold text-xl tracking-tight">Hera AI</span>
+              <span className="font-bold text-xl tracking-tight">HeraAI</span>
             </a>
           </div>
 
@@ -100,22 +99,22 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden mt-4 py-4 animate-fade-in">
             <nav className="flex flex-col space-y-4">
-              <a 
-                href="#features" 
+              <a
+                href="#features"
                 className="text-sm font-medium px-4 py-2 rounded-md hover:bg-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Features
               </a>
-              <a 
-                href="#how-it-works" 
+              <a
+                href="#how-it-works"
                 className="text-sm font-medium px-4 py-2 rounded-md hover:bg-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 How It Works
               </a>
-              <a 
-                href="#companies" 
+              <a
+                href="#companies"
                 className="text-sm font-medium px-4 py-2 rounded-md hover:bg-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
@@ -146,7 +145,7 @@ const Navbar = () => {
           </div>
         )}
       </div>
-      
+
       <DemoModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
     </header>
   );

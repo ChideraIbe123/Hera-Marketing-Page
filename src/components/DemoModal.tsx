@@ -1,11 +1,20 @@
-
 import React, { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/components/ui/dialog";
+import emailjs from "@emailjs/browser";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { CalendarCheck, Clock, Video } from "lucide-react";
+
+// Initialize EmailJS with your public key (ideally stored in an environment variable)
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 interface DemoModalProps {
   isOpen: boolean;
@@ -18,204 +27,153 @@ export function DemoModal({ isOpen, setIsOpen }: DemoModalProps) {
     name: "",
     email: "",
     company: "",
-    phone: "",
-    teamSize: ""
+    teamSize: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [step, setStep] = useState(1);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (step === 1) {
-      setStep(2);
-      return;
-    }
-    
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    // Prepare email parameters with company, team size, and message details.
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      company: formData.company,
+      teamSize: formData.teamSize,
+      message: `${formData.company} with a team size of ${formData.teamSize} says: ${formData.message}`,
+    };
+
+    try {
+      // Replace the service and template IDs with your actual EmailJS IDs
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
+      toast({
+        title: "Demo Request Sent",
+        description:
+          "Your demo request has been sent. We will get back to you shortly.",
+      });
       setIsOpen(false);
-      
-      // Reset form
+
+      // Reset form data
       setFormData({
         name: "",
         email: "",
         company: "",
-        phone: "",
-        teamSize: ""
+        teamSize: "",
+        message: "",
       });
-      
-      setStep(1);
-      
-      // Show success toast
+    } catch (error) {
+      console.error("Error submitting form:", error);
       toast({
-        title: "Demo Scheduled",
-        description: "Thank you for your interest! We'll send you a calendar invite shortly.",
+        title: "Error",
+        description:
+          "There was a problem sending your demo request. Please try again.",
+        variant: "destructive",
       });
-    }, 1000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
-          <DialogTitle>{step === 1 ? "Request a Demo" : "Choose a Demo Time"}</DialogTitle>
+          <DialogTitle>Request a Demo</DialogTitle>
           <DialogDescription>
-            {step === 1 
-              ? "Fill out the form below to schedule a personalized demo of Hera AI."
-              : "Select your preferred date and time for the demo."
-            }
+            Fill out the form below to set up a demo with us.
           </DialogDescription>
         </DialogHeader>
-        
-        {step === 1 ? (
-          <form onSubmit={handleSubmit} className="space-y-4 py-4">
-            <div className="grid grid-cols-1 gap-4">
-              <div className="grid gap-2">
-                <Label htmlFor="name">Full Name</Label>
-                <Input 
-                  id="name" 
-                  name="name" 
-                  placeholder="John Doe" 
-                  value={formData.name} 
-                  onChange={handleChange} 
-                  required 
-                />
-              </div>
-              
-              <div className="grid gap-2">
-                <Label htmlFor="email">Work Email</Label>
-                <Input 
-                  id="email" 
-                  name="email" 
-                  type="email" 
-                  placeholder="john@example.com" 
-                  value={formData.email} 
-                  onChange={handleChange} 
-                  required 
-                />
-              </div>
-              
-              <div className="grid gap-2">
-                <Label htmlFor="company">Company</Label>
-                <Input 
-                  id="company" 
-                  name="company" 
-                  placeholder="Acme Inc." 
-                  value={formData.company} 
-                  onChange={handleChange} 
-                  required 
-                />
-              </div>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <div className="grid gap-2">
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input 
-                    id="phone" 
-                    name="phone" 
-                    type="tel" 
-                    placeholder="+1 (555) 123-4567" 
-                    value={formData.phone} 
-                    onChange={handleChange} 
-                    required
-                  />
-                </div>
-                
-                <div className="grid gap-2">
-                  <Label htmlFor="teamSize">Team Size</Label>
-                  <Input 
-                    id="teamSize" 
-                    name="teamSize" 
-                    placeholder="e.g. 10-50" 
-                    value={formData.teamSize} 
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              </div>
+        <form onSubmit={handleSubmit} className="space-y-4 py-4">
+          <div className="grid grid-cols-1 gap-4">
+            <div className="grid gap-2">
+              <Label htmlFor="name">Full Name</Label>
+              <Input
+                id="name"
+                name="name"
+                placeholder="John Doe"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
             </div>
-            
-            <DialogFooter className="pt-4">
-              <Button type="button" variant="outline" onClick={() => setIsOpen(false)} className="mr-2">
-                Cancel
-              </Button>
-              <Button type="submit" className="btn-gradient">
-                Next Step
-              </Button>
-            </DialogFooter>
-          </form>
-        ) : (
-          <div className="py-4">
-            <div className="mb-6 bg-secondary/50 p-4 rounded-lg border border-border">
-              <div className="flex items-center gap-2 mb-2 text-primary">
-                <Video className="h-4 w-4" />
-                <span className="font-medium">30-minute video call</span>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Our product specialist will guide you through Hera AI's key features and answer any questions you have.
-              </p>
+            <div className="grid gap-2">
+              <Label htmlFor="email">Work Email</Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="john@example.com"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
             </div>
-            
-            <div className="space-y-4">
-              <h4 className="font-medium">Available time slots:</h4>
-              
-              <div className="grid grid-cols-1 gap-3">
-                {[
-                  { date: "Tomorrow", time: "10:00 AM", timezone: "ET" },
-                  { date: "Tomorrow", time: "2:00 PM", timezone: "ET" },
-                  { date: "Wednesday", time: "11:30 AM", timezone: "ET" },
-                ].map((slot, i) => (
-                  <div 
-                    key={i}
-                    className="flex items-center justify-between p-3 border border-border rounded-lg hover:bg-secondary/50 cursor-pointer"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                        <CalendarCheck className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <p className="font-medium">{slot.date}</p>
-                        <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                          <Clock className="h-3.5 w-3.5" />
-                          <span>{slot.time} {slot.timezone}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <label className="relative inline-flex items-center cursor-pointer">
-                      <input 
-                        type="radio" 
-                        name="timeSlot" 
-                        value={`${slot.date} ${slot.time}`} 
-                        className="sr-only peer" 
-                      />
-                      <div className="w-5 h-5 peer-checked:bg-primary border border-border rounded-full flex items-center justify-center">
-                        <div className="w-3 h-3 bg-white rounded-full opacity-0 peer-checked:opacity-100"></div>
-                      </div>
-                    </label>
-                  </div>
-                ))}
-              </div>
+            <div className="grid gap-2">
+              <Label htmlFor="company">Company</Label>
+              <Input
+                id="company"
+                name="company"
+                placeholder="Acme Inc."
+                value={formData.company}
+                onChange={handleChange}
+                required
+              />
             </div>
-            
-            <DialogFooter className="pt-6">
-              <Button type="button" variant="outline" onClick={() => setStep(1)} className="mr-2">
-                Back
-              </Button>
-              <Button onClick={handleSubmit} disabled={isSubmitting} className="btn-gradient">
-                {isSubmitting ? "Scheduling..." : "Schedule Demo"}
-              </Button>
-            </DialogFooter>
+            <div className="grid gap-2">
+              <Label htmlFor="teamSize">Team Size</Label>
+              <Input
+                id="teamSize"
+                name="teamSize"
+                placeholder="e.g. 10-50"
+                value={formData.teamSize}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="message">Message</Label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Your message..."
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="border border-border rounded-lg p-2"
+              />
+            </div>
           </div>
-        )}
+          <DialogFooter className="pt-4">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => setIsOpen(false)}
+              className="mr-2"
+            >
+              Cancel
+            </Button>
+            <Button
+              type="submit"
+              className="btn-gradient"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Submitting..." : "Schedule Demo"}
+            </Button>
+          </DialogFooter>
+        </form>
       </DialogContent>
     </Dialog>
   );
