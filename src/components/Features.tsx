@@ -10,6 +10,7 @@ import {
   Users,
   UserPlus,
   Award,
+  CheckCircle2,
 } from "lucide-react";
 
 const features = [
@@ -73,6 +74,7 @@ const Features = () => {
   return (
     <section id="features" className="section-padding bg-secondary/50 overflow-hidden">
       <div className="container-custom">
+        {/* Enhanced header with animated underline */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-secondary border border-primary/10 animate-fade-in">
             <span className="text-xs font-medium text-primary">
@@ -80,8 +82,9 @@ const Features = () => {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            See <span className="text-gradient">beyond the numbers</span> with
-            qualitative analysis
+            See <span className="text-gradient relative">beyond the numbers
+              <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-violet-600 animate-pulse-soft"></span>
+            </span> with qualitative analysis
           </h2>
           <p className="text-muted-foreground text-balance animate-fade-in" style={{ animationDelay: "0.4s" }}>
             Traditional metrics miss the hidden contributions that drive your
@@ -90,32 +93,38 @@ const Features = () => {
           </p>
         </div>
 
+        {/* Improved feature cards with better animations */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-md border border-border transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2 ${feature.animate}`}
-              style={{ animationDelay: feature.delay, animationDuration: "4s" }}
+              className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-md border border-border hover:border-primary/30 transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2 animate-fade-in"
+              style={{ animationDelay: `${0.2 + index * 0.1}s` }}
             >
               <div
-                className={`w-14 h-14 rounded-lg bg-gradient-to-r ${feature.color} flex items-center justify-center text-white mb-5 transform transition-all duration-300 group-hover:scale-110`}
+                className={`w-14 h-14 rounded-lg bg-gradient-to-r ${feature.color} flex items-center justify-center text-white mb-5 transform transition-all duration-300 hover:scale-110`}
               >
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
+              <p className="text-muted-foreground mb-4">{feature.description}</p>
+              <div className="w-16 h-1 rounded-full bg-gradient-to-r from-blue-500/40 to-violet-500/40 transition-all duration-300 group-hover:w-24"></div>
             </div>
           ))}
         </div>
 
+        {/* Enhanced Hidden Value Visualization section */}
         <div className="mt-20 bg-gradient-to-r from-blue-50 to-violet-50 rounded-2xl p-8 md:p-12 overflow-hidden relative animate-fade-in" style={{ animationDelay: "0.6s" }}>
           <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/5 rounded-full blur-2xl"></div>
           <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-violet-500/5 rounded-full blur-2xl"></div>
           
           <div className="flex flex-col md:flex-row md:items-center">
             <div className="md:w-1/2 mb-8 md:mb-0 z-10">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 animate-fade-in" style={{ animationDelay: "0.8s" }}>
-                Hidden Value Visualization
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 animate-fade-in flex items-center" style={{ animationDelay: "0.8s" }}>
+                <span className="text-gradient">Hidden Value</span> Visualization
+                <div className="ml-3 w-8 h-8 rounded-full bg-gradient-to-r from-green-500 to-emerald-400 flex items-center justify-center shadow-md animate-pulse-soft">
+                  <CheckCircle2 className="h-5 w-5 text-white" />
+                </div>
               </h3>
               <p className="text-muted-foreground mb-6 md:max-w-md animate-fade-in" style={{ animationDelay: "1s" }}>
                 Our interactive network graphs make it easy to identify
@@ -129,8 +138,8 @@ const Features = () => {
                   { text: "Recognize knowledge-sharing champions", icon: <Award className="w-3 h-3 text-white" /> },
                   { text: "Visualize team cohesion and gaps", icon: <Users className="w-3 h-3 text-white" /> },
                 ].map((item, i) => (
-                  <li key={i} className={`flex items-start animate-fade-in`} style={{ animationDelay: `${1.2 + i * 0.2}s` }}>
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-green-500 to-emerald-400 flex items-center justify-center mt-1 mr-3 shadow-md">
+                  <li key={i} className="flex items-center gap-3 animate-fade-in" style={{ animationDelay: `${1.2 + i * 0.2}s` }}>
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-green-500 to-emerald-400 flex items-center justify-center shadow-md">
                       {item.icon}
                     </div>
                     <span className="text-gray-700">{item.text}</span>
@@ -227,7 +236,6 @@ const Features = () => {
                           })}
                         </svg>
                         
-                        {/* Additional decorative pulse circles */}
                         <div className="absolute top-0 left-0 -mt-8 -ml-8 w-16 h-16 rounded-full bg-blue-600/20 animate-pulse-soft" style={{ animationDelay: "0.5s" }}></div>
                         <div className="absolute top-0 left-0 -mt-8 -ml-8 w-24 h-24 rounded-full bg-violet-600/10 animate-pulse-soft" style={{ animationDelay: "1s" }}></div>
                       </div>

@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
-  Award,
-  BarChart,
+  Activity,
+  GitBranch,
+  MessageCircle,
   Users,
-  Zap,
   Play,
 } from "lucide-react";
 import { DemoModal } from "@/components/DemoModal";
@@ -69,44 +69,148 @@ const Hero = () => {
             <div className="relative w-full h-80 md:h-[400px] bg-gradient-to-br from-blue-50 to-violet-50 rounded-2xl overflow-hidden animate-fade-in mx-auto">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center opacity-10"></div>
 
-              {/* Core features visualization */}
+              {/* Network visualization elements */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="grid grid-cols-2 gap-6 p-4">
-                  {/* Core Feature 1 */}
-                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-blue-100 transform hover:scale-105 transition-all duration-300">
-                    <Award className="h-8 w-8 text-blue-600 mb-4" />
-                    <h3 className="text-lg font-semibold mb-2">Neural Talent Mapping</h3>
-                    <p className="text-sm text-gray-600">
-                      AI algorithms that decode collaborative networks and identify hidden influencers
-                    </p>
+                <div className="relative w-64 h-64">
+                  {/* Central node */}
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center shadow-lg animate-pulse-soft z-10">
+                    <Users className="h-8 w-8 text-white" />
                   </div>
-                  
-                  {/* Core Feature 2 */}
-                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-violet-100 transform hover:scale-105 transition-all duration-300">
-                    <Zap className="h-8 w-8 text-violet-600 mb-4" />
-                    <h3 className="text-lg font-semibold mb-2">Quantum Efficiency</h3>
-                    <p className="text-sm text-gray-600">
-                      Eliminate subjective evaluation with data-driven performance metrics
-                    </p>
+
+                  {/* Connected nodes - fixed alignment during animation */}
+                  <div
+                    className="absolute w-12 h-12"
+                    style={{
+                      top: "0",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                    }}
+                  >
+                    <div
+                      className="w-full h-full rounded-full bg-violet-600 flex items-center justify-center shadow-md animate-float"
+                      style={{ animationDelay: "0.5s" }}
+                    >
+                      <GitBranch className="h-6 w-6 text-white" />
+                    </div>
                   </div>
-                  
-                  {/* Core Feature 3 */}
-                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-amber-100 transform hover:scale-105 transition-all duration-300">
-                    <Users className="h-8 w-8 text-amber-600 mb-4" />
-                    <h3 className="text-lg font-semibold mb-2">Holographic Visibility</h3>
-                    <p className="text-sm text-gray-600">
-                      360° transparency into contribution patterns across all digital workspaces
-                    </p>
+
+                  <div
+                    className="absolute w-12 h-12"
+                    style={{
+                      bottom: "0",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                    }}
+                  >
+                    <div
+                      className="w-full h-full rounded-full bg-green-500 flex items-center justify-center shadow-md animate-float"
+                      style={{ animationDelay: "1.5s" }}
+                    >
+                      <Activity className="h-6 w-6 text-white" />
+                    </div>
                   </div>
-                  
-                  {/* Core Feature 4 */}
-                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-green-100 transform hover:scale-105 transition-all duration-300">
-                    <BarChart className="h-8 w-8 text-green-600 mb-4" />
-                    <h3 className="text-lg font-semibold mb-2">Predictive Insights</h3>
-                    <p className="text-sm text-gray-600">
-                      Anticipate team dynamics and optimize talent allocation with AI forecasting
-                    </p>
+
+                  <div
+                    className="absolute w-12 h-12"
+                    style={{
+                      top: "50%",
+                      left: "0",
+                      transform: "translateY(-50%)",
+                    }}
+                  >
+                    <div
+                      className="w-full h-full rounded-full bg-amber-500 flex items-center justify-center shadow-md animate-float"
+                      style={{ animationDelay: "1s" }}
+                    >
+                      <MessageCircle className="h-6 w-6 text-white" />
+                    </div>
                   </div>
+
+                  <div
+                    className="absolute w-12 h-12"
+                    style={{
+                      top: "50%",
+                      right: "0",
+                      transform: "translateY(-50%)",
+                    }}
+                  >
+                    <div
+                      className="w-full h-full rounded-full bg-rose-500 flex items-center justify-center shadow-md animate-float"
+                      style={{ animationDelay: "2s" }}
+                    >
+                      <svg
+                        className="h-6 w-6 text-white"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M7 8L3 12L7 16"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M17 8L21 12L17 16"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M14 4L10 20"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Connection lines - adjusted viewBox to ensure proper alignment */}
+                  <svg
+                    className="absolute inset-0 w-full h-full"
+                    viewBox="0 0 256 256"
+                  >
+                    <line
+                      x1="128"
+                      y1="32"
+                      x2="128"
+                      y2="112"
+                      stroke="rgba(124, 58, 237, 0.5)"
+                      strokeWidth="2"
+                      strokeDasharray="4 4"
+                    />
+                    <line
+                      x1="128"
+                      y1="144"
+                      x2="128"
+                      y2="224"
+                      stroke="rgba(16, 185, 129, 0.5)"
+                      strokeWidth="2"
+                      strokeDasharray="4 4"
+                    />
+                    <line
+                      x1="32"
+                      y1="128"
+                      x2="112"
+                      y2="128"
+                      stroke="rgba(245, 158, 11, 0.5)"
+                      strokeWidth="2"
+                      strokeDasharray="4 4"
+                    />
+                    <line
+                      x1="144"
+                      y1="128"
+                      x2="224"
+                      y2="128"
+                      stroke="rgba(239, 68, 68, 0.5)"
+                      strokeWidth="2"
+                      strokeDasharray="4 4"
+                    />
+                  </svg>
                 </div>
               </div>
             </div>

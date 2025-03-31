@@ -66,7 +66,7 @@ const HowItWorks = () => {
           </p>
         </div>
 
-        {/* Horizontal Steps Layout with animation */}
+        {/* Enhanced Steps Layout with improved animations */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {steps.map((step, index) => (
             <div
@@ -99,15 +99,15 @@ const HowItWorks = () => {
           ))}
         </div>
 
-        {/* Feature Timeline with enhanced animations */}
+        {/* Improved Timeline with better alignment and enhanced animations */}
         <div className="relative mt-20 animate-fade-in" style={{ animationDelay: "1.4s" }}>
           <div className="absolute left-0 right-0 h-1 top-7 bg-gradient-to-r from-blue-100 via-violet-200 to-blue-100"></div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {steps.map((step, index) => (
-              <div key={index} className="relative px-4">
+              <div key={index} className="relative px-4 flex flex-col items-center">
                 <div
-                  className={`w-14 h-14 rounded-full bg-gradient-to-r ${step.color} mx-auto flex items-center justify-center text-white z-10 relative transform transition-all duration-500 hover:scale-110 animate-fade-in`}
+                  className={`w-14 h-14 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center text-white z-10 relative transform transition-all duration-500 hover:scale-110 animate-fade-in`}
                   style={{ animationDelay: `${1.6 + index * 0.2}s` }}
                 >
                   {index + 1}
@@ -123,8 +123,6 @@ const HowItWorks = () => {
             ))}
           </div>
         </div>
-
-        {/* CTA Section */}
       </div>
     </section>
   );
