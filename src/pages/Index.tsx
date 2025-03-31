@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import HowItWorks from '@/components/HowItWorks';
-import CompaniesInterested from '@/components/Testimonial';
+import CompaniesInterested from '@/components/CompaniesInterested';
 import CallToAction from '@/components/CallToAction';
 import Waitlist from '@/components/Waitlist';
 import Footer from '@/components/Footer';
