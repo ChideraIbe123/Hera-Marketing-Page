@@ -17,13 +17,12 @@ const CompaniesInterested = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-6 justify-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {[1, 2, 3, 4].map((index) => (
-            <div 
-              key={index} 
-              className="bg-white rounded-lg p-5 shadow-sm flex items-center justify-center w-[200px]"
-            >
-              <span className="text-gray-500 font-medium">Company {index}</span>
+            <div key={index} className="bg-white rounded-lg p-6 shadow-sm flex items-center justify-center aspect-video">
+              <div className="w-full h-full bg-gray-200 rounded flex items-center justify-center">
+                <span className="text-gray-500 font-medium">Company {index}</span>
+              </div>
             </div>
           ))}
         </div>
