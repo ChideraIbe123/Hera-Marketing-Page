@@ -5,8 +5,7 @@
       "destination": "/index.html"
     }
   ],
-  "buildCommand": "npm run build",
-  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "rm -rf node_modules && npm install --legacy-peer-deps && npm run build",
   "outputDirectory": "dist",
   "framework": "vite"
 }
