@@ -1,11 +1,12 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
-  GitBranch,
-  MessageCircle,
+  Award,
+  BarChart,
   Users,
-  Activity,
+  Zap,
   Play,
 } from "lucide-react";
 import { DemoModal } from "@/components/DemoModal";
@@ -30,19 +31,19 @@ const Hero = () => {
           <div className="md:w-1/2 mb-12 md:mb-0 animate-fade-in">
             <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-secondary border border-primary/10">
               <span className="text-xs font-medium text-primary">
-                Redefining Human Resource Analytics
+                AI-Powered Performance Evaluation System
               </span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 md:max-w-xl">
-              Discover the <span className="text-gradient">hidden value</span>{" "}
-              within your team
+              Identify your <span className="text-gradient">true performers</span>{" "}
+              with AI precision
             </h1>
 
             <p className="text-lg text-muted-foreground mb-8 md:max-w-lg text-balance">
-              HeraAI analyzes interactions across your company's tools to reveal
-              the true collaborative landscape—focusing on how work happens, not
-              just what gets done.
+              HeraAI redefines performance evaluation by analyzing real
+              collaboration patterns across all your company tools—bringing
+              efficiency, transparency, and convenience to how you recognize top talent.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -66,150 +67,46 @@ const Hero = () => {
 
           <div className="md:w-1/2 relative">
             <div className="relative w-full h-80 md:h-[400px] bg-gradient-to-br from-blue-50 to-violet-50 rounded-2xl overflow-hidden animate-fade-in mx-auto">
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center opacity-10"></div>
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center opacity-10"></div>
 
-              {/* Network visualization elements */}
+              {/* Core features visualization */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-64 h-64">
-                  {/* Central node */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center shadow-lg animate-pulse-soft z-10">
-                    <Users className="h-8 w-8 text-white" />
+                <div className="grid grid-cols-2 gap-6 p-4">
+                  {/* Core Feature 1 */}
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-blue-100 transform hover:scale-105 transition-all duration-300">
+                    <Award className="h-8 w-8 text-blue-600 mb-4" />
+                    <h3 className="text-lg font-semibold mb-2">Recognize Top Talent</h3>
+                    <p className="text-sm text-gray-600">
+                      Identify your organization's true performers with data-driven insights
+                    </p>
                   </div>
-
-                  {/* Connected nodes - fixed alignment during animation */}
-                  <div
-                    className="absolute w-12 h-12"
-                    style={{
-                      top: "0",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                    }}
-                  >
-                    <div
-                      className="w-full h-full rounded-full bg-violet-600 flex items-center justify-center shadow-md animate-float"
-                      style={{ animationDelay: "0.5s" }}
-                    >
-                      <GitBranch className="h-6 w-6 text-white" />
-                    </div>
+                  
+                  {/* Core Feature 2 */}
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-violet-100 transform hover:scale-105 transition-all duration-300">
+                    <Zap className="h-8 w-8 text-violet-600 mb-4" />
+                    <h3 className="text-lg font-semibold mb-2">Boost Efficiency</h3>
+                    <p className="text-sm text-gray-600">
+                      Streamline evaluations and reduce bias with AI analysis
+                    </p>
                   </div>
-
-                  <div
-                    className="absolute w-12 h-12"
-                    style={{
-                      bottom: "0",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                    }}
-                  >
-                    <div
-                      className="w-full h-full rounded-full bg-green-500 flex items-center justify-center shadow-md animate-float"
-                      style={{ animationDelay: "1.5s" }}
-                    >
-                      <Activity className="h-6 w-6 text-white" />
-                    </div>
+                  
+                  {/* Core Feature 3 */}
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-amber-100 transform hover:scale-105 transition-all duration-300">
+                    <Users className="h-8 w-8 text-amber-600 mb-4" />
+                    <h3 className="text-lg font-semibold mb-2">Complete Transparency</h3>
+                    <p className="text-sm text-gray-600">
+                      Base decisions on actual collaboration data, not just perceptions
+                    </p>
                   </div>
-
-                  <div
-                    className="absolute w-12 h-12"
-                    style={{
-                      top: "50%",
-                      left: "0",
-                      transform: "translateY(-50%)",
-                    }}
-                  >
-                    <div
-                      className="w-full h-full rounded-full bg-amber-500 flex items-center justify-center shadow-md animate-float"
-                      style={{ animationDelay: "1s" }}
-                    >
-                      <MessageCircle className="h-6 w-6 text-white" />
-                    </div>
+                  
+                  {/* Core Feature 4 */}
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-green-100 transform hover:scale-105 transition-all duration-300">
+                    <BarChart className="h-8 w-8 text-green-600 mb-4" />
+                    <h3 className="text-lg font-semibold mb-2">Data-Driven Decisions</h3>
+                    <p className="text-sm text-gray-600">
+                      Make promotion and development choices based on comprehensive metrics
+                    </p>
                   </div>
-
-                  <div
-                    className="absolute w-12 h-12"
-                    style={{
-                      top: "50%",
-                      right: "0",
-                      transform: "translateY(-50%)",
-                    }}
-                  >
-                    <div
-                      className="w-full h-full rounded-full bg-rose-500 flex items-center justify-center shadow-md animate-float"
-                      style={{ animationDelay: "2s" }}
-                    >
-                      <svg
-                        className="h-6 w-6 text-white"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M7 8L3 12L7 16"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M17 8L21 12L17 16"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M14 4L10 20"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-
-                  {/* Connection lines - adjusted viewBox to ensure proper alignment */}
-                  <svg
-                    className="absolute inset-0 w-full h-full"
-                    viewBox="0 0 256 256"
-                  >
-                    <line
-                      x1="128"
-                      y1="32"
-                      x2="128"
-                      y2="112"
-                      stroke="rgba(124, 58, 237, 0.5)"
-                      strokeWidth="2"
-                      strokeDasharray="4 4"
-                    />
-                    <line
-                      x1="128"
-                      y1="144"
-                      x2="128"
-                      y2="224"
-                      stroke="rgba(16, 185, 129, 0.5)"
-                      strokeWidth="2"
-                      strokeDasharray="4 4"
-                    />
-                    <line
-                      x1="32"
-                      y1="128"
-                      x2="112"
-                      y2="128"
-                      stroke="rgba(245, 158, 11, 0.5)"
-                      strokeWidth="2"
-                      strokeDasharray="4 4"
-                    />
-                    <line
-                      x1="144"
-                      y1="128"
-                      x2="224"
-                      y2="128"
-                      stroke="rgba(239, 68, 68, 0.5)"
-                      strokeWidth="2"
-                      strokeDasharray="4 4"
-                    />
-                  </svg>
                 </div>
               </div>
             </div>
