@@ -311,9 +311,8 @@ const HowItWorks = () => {
                                     style={{
                                       height: '0%',
                                       animation: `slide-up 1s ease-out forwards ${0.9 + i * 0.1}s`,
-                                      animationFillMode: 'forwards',
-                                      '--final-height': `${height}%`
                                     }}
+                                    data-final-height={`${height}%`}
                                   ></div>
                                 ))}
                               </div>

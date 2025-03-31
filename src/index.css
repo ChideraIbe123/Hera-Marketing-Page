@@ -76,8 +76,18 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   
-  [style*="--final-height"] {
-    animation-timeline: --final-height;
+  [data-final-height] {
+    animation-timeline: view();
+    height: var(--height, 0%);
+  }
+  
+  @keyframes slide-up {
+    from {
+      height: 0%;
+    }
+    to {
+      height: attr(data-final-height);
+    }
   }
 }
 
