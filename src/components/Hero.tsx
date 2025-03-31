@@ -1,12 +1,11 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
-  Activity,
   GitBranch,
   MessageCircle,
   Users,
+  Activity,
   Play,
 } from "lucide-react";
 import { DemoModal } from "@/components/DemoModal";
@@ -31,19 +30,19 @@ const Hero = () => {
           <div className="md:w-1/2 mb-12 md:mb-0 animate-fade-in">
             <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-secondary border border-primary/10">
               <span className="text-xs font-medium text-primary">
-                Next-Gen Talent Optimization
+                Redefining Human Resource Analytics
               </span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 md:max-w-xl">
-              Decode <span className="text-gradient">hidden potential</span>{" "}
-              with AI intelligence
+              Discover the <span className="text-gradient">hidden value</span>{" "}
+              within your team
             </h1>
 
             <p className="text-lg text-muted-foreground mb-8 md:max-w-lg text-balance">
-              HeraAI transcends traditional evaluations by analyzing digital collaboration 
-              patterns across your enterprise—revealing the invisible networks that drive 
-              innovation and success in your organization.
+              HeraAI analyzes interactions across your company's tools to reveal
+              the true collaborative landscape—focusing on how work happens, not
+              just what gets done.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -67,7 +66,7 @@ const Hero = () => {
 
           <div className="md:w-1/2 relative">
             <div className="relative w-full h-80 md:h-[400px] bg-gradient-to-br from-blue-50 to-violet-50 rounded-2xl overflow-hidden animate-fade-in mx-auto">
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center opacity-10"></div>
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center opacity-10"></div>
 
               {/* Network visualization elements */}
               <div className="absolute inset-0 flex items-center justify-center">
