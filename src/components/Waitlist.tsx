@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import emailjs from "@emailjs/browser";
-
-// Initialize EmailJS with environment variable
-emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+import { supabase } from "@/lib/supabase";
 
 const Waitlist = () => {
   const [email, setEmail] = useState("");
@@ -19,36 +16,33 @@ const Waitlist = () => {
     setIsSubmitting(true);
 
     try {
-      // Prepare the email parameters
-      const templateParams = {
-        from_email: email,
-        from_name: `${company} - ${role}`,
-        to_email: import.meta.env.VITE_EMAILJS_TO_EMAIL,
-        message: `New waitlist signup from ${email} (${company}, ${role})`,
-      };
+      // Insert data into Supabase Waitlist table
+      const { error } = await supabase.from("Waitlist").insert([
+        {
+          email,
+          company,
+          role,
+          created_at: new Date().toISOString(),
+        },
+      ]);
 
-      // Send the email using EmailJS with environment variables
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        templateParams
-      );
+      if (error) throw error;
 
       toast({
         title: "Success!",
         description:
           "You've been added to our waitlist. We'll be in touch soon!",
-      });
+      }); // Reset form
 
-      // Reset form
       setEmail("");
       setCompany("");
       setRole("");
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error submitting form:", error);
       toast({
         title: "Error",
         description:
+          error.message ||
           "There was a problem submitting your request. Please try again.",
         variant: "destructive",
       });
@@ -111,12 +105,12 @@ const Waitlist = () => {
                     htmlFor="email"
                     className="block text-sm font-medium mb-1"
                   >
-                    Work Email
+                    Email
                   </label>
                   <Input
                     id="email"
                     type="email"
-                    placeholder="you@company.com"
+                    placeholder="you@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -128,11 +122,11 @@ const Waitlist = () => {
                     htmlFor="company"
                     className="block text-sm font-medium mb-1"
                   >
-                    Company Name
+                    Company/Org Name
                   </label>
                   <Input
                     id="company"
-                    placeholder="Your company"
+                    placeholder="Your company/org"
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
                     required
