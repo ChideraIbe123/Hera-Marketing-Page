@@ -23,8 +23,8 @@ const CompaniesInterested = () => {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Companies <span className="text-gradient">interested</span> in Hera
-            AI
+            Companies <span className="text-gradient">interested</span> in
+            HeraAI
           </h2>
           <p className="text-muted-foreground text-balance">
             Join these forward-thinking organizations exploring how HeraAI can

@@ -35,14 +35,16 @@ const Hero = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 md:max-w-xl">
-              Discover the <span className="text-gradient">hidden value</span>{" "}
-              within your team
+              Redefine{" "}
+              <span className="text-gradient">performance evaluations</span>{" "}
+              with AI
             </h1>
 
             <p className="text-lg text-muted-foreground mb-8 md:max-w-lg text-balance">
-              HeraAI analyzes interactions across your company's tools to reveal
-              the true collaborative landscape—focusing on how work happens, not
-              just what gets done.
+              HeraAI transcends traditional evaluations by analyzing digital
+              collaboration patterns across your enterprise—revealing the
+              invisible networks that drive innovation and success in your
+              organization.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
