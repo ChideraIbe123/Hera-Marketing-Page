@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import {
   Network,
   GitMerge,
@@ -9,8 +9,41 @@ import {
   Users,
   Play,
 } from "lucide-react";
+import video from "./demo.mp4";
 
 const Features = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && videoRef.current) {
+          videoRef.current
+            .play()
+            .catch((e) => console.log("Auto-play failed:", e));
+        } else if (!entry.isIntersecting && videoRef.current) {
+          videoRef.current.pause();
+        }
+      });
+    }, options);
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section id="features" className="section-padding bg-secondary/50">
       <div className="container-custom">
@@ -38,17 +71,19 @@ const Features = () => {
             </h3>
           </div>
           <div className="flex justify-center items-center">
-            <div className="w-full max-w-5xl relative">
-              <div className="relative aspect-video w-full bg-white rounded-xl overflow-hidden shadow-xl">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-900/5 to-violet-900/5"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="flex flex-col items-center justify-center">
-                    <Play className="h-24 w-24 text-blue-600 mb-4 hover:scale-110 transition-transform duration-300 cursor-pointer" />
-                    <p className="text-gray-600 font-medium text-lg">
-                      Watch Product Demo
-                    </p>
-                  </div>
-                </div>
+            <div className="w-full max-w-6xl relative">
+              <div className="relative aspect-video w-full bg-white rounded-xl overflow-hidden shadow-2xl">
+                <video
+                  ref={videoRef}
+                  src={video}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  muted
+                  loop
+                  playsInline
+                  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E"
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </div>
