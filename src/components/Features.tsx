@@ -9,7 +9,7 @@ import {
   Users,
   Play,
 } from "lucide-react";
-import video from "./demo.mp4";
+import video from "./demo2.mov";
 
 const Features = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
